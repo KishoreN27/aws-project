@@ -1,0 +1,28 @@
+***********Java Spring Boot Project*************
+
+1. Create the Vpc, named as my-vpc with cidr range 10.0.0.0/16
+2. Create the Igw and attach with my-vpc
+3. Create subnet for public (10.0.1.0/24) and private(10.0.2.0)
+4. Create nat for private network connection
+5. In private subnet edit route and add the nat gateway.
+6. Create Public route and Private route and associate with public subnet and private subnet
+7. Check the vpc resource map for connection(public to igw and private to nat)
+8. Create the two ec2 server for my-vpc with public subnet and private subnet
+9. Login in to the public server and ping if the network is there or not .
+10. Copy the pem key content in vi window.pem to paste it and give the permission as (sudo chmod 600 window.pem) note:only give the permission as 600
+11. Then login ssh -i window.pem ubuntu@privateip
+12. Ping google for check the net connection.
+13. In private server -> sudo apt update -> sudo apt install mysql-server -> vi /etc/mysql/mysql.conf.d/mysqld.cnf -> bind-address = 0.0.0.0  mysqlx-bind-address = 0.0.0.0
+14. sudo systemctl restart mysql
+15. In public server -> git clone https://github.com/KishoreN27/spring-boot-k8s.git
+16. /home/ubuntu/spring-boot-k8s/src/main/resources -> vi application.properties -> add the private ip and change the username and password
+17. go to private server -> sudo mysql -> create database notes_app;
+18. CREATE USER "admin"@"%" IDENTIFIED BY "12345";
+	GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+19. In private server allow security group my-sql -> check using (telnet privateip 3306)
+20. sudo apt update -> sudo apt install maven -> mvn install -> sudo apt install openjdk-8-jdk
+21. nohup java -jar easy-notes-1.0.0.jar &
+22.  ps -ef | grep easy-notes-1.0.0.jar
+23. sudo apt install net-tools
+24. sudo netstat -tunlp | grep port(ex:5432)
+25. In public server allow the SG(8080-HTTP) port number
