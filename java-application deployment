@@ -18,8 +18,9 @@
 16. /home/ubuntu/spring-boot-k8s/src/main/resources -> vi application.properties -> add the private ip and change the username and password
 17. go to private server -> sudo mysql -> create database notes_app;
 18. CREATE USER "admin"@"%" IDENTIFIED BY "12345";
-	GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
-19. In private server allow security group my-sql -> check using (telnet privateip 3306)
+    GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;
+    FLUSH PRIVILEGES;
+19. In public server -> to allow private server security group add my-sql port 3306 -> check using (telnet privateip 3306)
 20. sudo apt update -> sudo apt install maven -> mvn install -> sudo apt install openjdk-8-jdk
 21. nohup java -jar easy-notes-1.0.0.jar &
 22.  ps -ef | grep easy-notes-1.0.0.jar
