@@ -27,3 +27,15 @@
 23. sudo apt install net-tools
 24. sudo netstat -tunlp | grep port(ex:5432)
 25. In public server allow the SG(8080-HTTP) port number
+
+
+*********Using RDS Database********
+
+sudo apt install mysql-client
+mysql -h my-db.cz0gweiu0p15.ap-south-1.rds.amazonaws.com -P 3306 -u  admin -p 
+allow firewall mysql in rds vpc
+src/main/resource/application.properties-->change the db username and password we give in the rds 
+mvn install
+cd target 
+nohup java -jar easy***** &
+
